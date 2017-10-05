@@ -29,9 +29,16 @@ If you are learning ML *some* python is likely in your future. So we can maybe l
    - run `jp-babel-notebook` in the repo root folder
    - a web browser should pop up showing the Jupyter browser / tree view of the current folder.
  6. From Jupyter, open the [smoke test notebook](0_smoke_test.ipynb)
-   - When the notebook opens you should be able to see the `jp-babel` javascript kernel loaded in the top left corner.
+   - When the notebook opens you should be able to see the `jp-babel` javascript kernel loaded in the top right corner.
 
      ![jp-babel kernel](images/jp-babel-kernel-loaded.png)
 
    - If not, go to `Kernel Menu` > `Change Kernel` and select the `jp-babel` option and follow the prompts.
    - In the `Cell Menu`, select `Run All`. Each cell should execute and if all dependencies are properly installed we shouldn't see any errors.
+
+### Run in docker
+
+  1. docker build --tag=ml/ml . 
+    - please note that it downloads the original github repository, not the local files
+  2. docker run --name ml1 -d -v <path to your nodebooks>:/data ml/ml
+    - the link to the jupyter can be seen in the logs with `docker logs ml1`
